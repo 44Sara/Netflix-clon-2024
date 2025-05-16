@@ -2,8 +2,8 @@ import React from 'react'
 import "./Row.css"
 import { useState, useEffect} from 'react';
 import axios from "../../../Utils/axios"
-//  import movieTrailer from "movie-trailer"
-//  import YouTube from "react-youtube"
+ import movieTrailer from "movie-trailer"
+ import YouTube from "react-youtube"
 
 
 const Row = ({title,fetchUrl,isLargeRow}) => {
@@ -22,22 +22,22 @@ const Row = ({title,fetchUrl,isLargeRow}) => {
           }
   }) ();},[fetchUrl]);
 
-//   const handleClick = (movie) => {
-//     if (trailerUrl) {
-//         setTrailerUrl("");
-//     } else {
-//         movieTrailer(movie?.title || movie?.name || movie?.original_name )
-//             .then((url) => {
-//                 console.log(url);
-//                 const urlParams = new URLSearchParams(new URL(url).search);
-//                 console.log(urlParams)
-//                 console.log(urlParams.get("v"))
-//                 setTrailerUrl(urlParams.get("v"));
+  const handleClick = (movie) => {
+    if (trailerUrl) {
+        setTrailerUrl("");
+    } else {
+        movieTrailer(movie?.title || movie?.name || movie?.original_name )
+            .then((url) => {
+                console.log(url);
+                const urlParams = new URLSearchParams(new URL(url).search);
+                console.log(urlParams)
+                console.log(urlParams.get("v"))
+                setTrailerUrl(urlParams.get("v"));
               
-//             })
+            })
             
-//     }
-// };
+    }
+};
 const opts = {
   height: "390",
   width: "100%",
